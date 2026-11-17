@@ -2,7 +2,7 @@
 
 **Live module:** https://saeedfzn.github.io/ai-at-work-training-demo/
 
-A 25-minute sample learning module for colleagues in a retail business who have just been given an approved AI assistant:
+A 15-minute sample learning module for colleagues in a retail business who have just been given an approved AI assistant:
 
 1. What AI is good at and what it gets wrong ("AI drafts, you decide")
 2. Keeping data safe: a green / amber / red traffic light with five scenario questions

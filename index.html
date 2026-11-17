@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Using AI Well at Work</title>
 <meta property="og:title" content="Using AI safely and well at work: a sample training module by Faizaan Saeed">
-<meta property="og:description" content="A 25-minute sample learning module with scenarios, a prompt makeover exercise, a knowledge check and a facilitator guide.">
+<meta property="og:description" content="A 15-minute sample learning module with scenarios, a prompt makeover, a spot-the-errors check, a knowledge check, a facilitator guide and a learning journey.">
 <meta property="og:type" content="website">
-<meta name="description" content="Sample AI training module for colleagues in a retail business: what generative AI is good and bad at, keeping data safe, writing better prompts, plus a facilitator guide. Built by Faizaan Saeed.">
+<meta name="description" content="Sample AI training module for colleagues in a retail business: how generative AI works, keeping data safe, cyber security, writing better prompts and checking answers, plus a facilitator guide and learning journey. Built by Faizaan Saeed.">
 <style>
-:root{color-scheme:light;--bg:#f6f5f2;--surface:#fcfcfb;--surface-2:#f0efec;--line:#dedcd6;--text:#0b0b0b;--text-2:#52514e;--muted:#6c6a64;--accent:#2a78d6;--accent-ink:#1c5cab;--accent-soft:#e3eefc;--good:#0ca30c;--warning:#fab219;--critical:#d03b3b;--good-ink:#006300;--critical-ink:#b02a2a;--warn-ink:#7a5000}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#121211;--surface:#1a1a19;--surface-2:#232321;--line:#383835;--text:#f0efec;--text-2:#c3c2b7;--muted:#a3a197;--accent:#3987e5;--accent-ink:#86b6ef;--accent-soft:#16365c;--good-ink:#6fd66f;--critical-ink:#f08a8a;--warn-ink:#fab219}}
-:root[data-theme="dark"]{color-scheme:dark;--bg:#121211;--surface:#1a1a19;--surface-2:#232321;--line:#383835;--text:#f0efec;--text-2:#c3c2b7;--muted:#a3a197;--accent:#3987e5;--accent-ink:#86b6ef;--accent-soft:#16365c;--good-ink:#6fd66f;--critical-ink:#f08a8a;--warn-ink:#fab219}
+:root{color-scheme:light;--bg:#f6f5f2;--surface:#fcfcfb;--surface-2:#f0efec;--line:#dedcd6;--text:#0b0b0b;--text-2:#52514e;--muted:#5f5d58;--accent:#2a78d6;--accent-ink:#1c5cab;--btn:#1c5cab;--accent-soft:#e3eefc;--good:#0ca30c;--warning:#fab219;--critical:#d03b3b;--good-ink:#006300;--critical-ink:#b02a2a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#121211;--surface:#1a1a19;--surface-2:#232321;--line:#383835;--text:#f0efec;--text-2:#c3c2b7;--muted:#a9a79d;--accent:#3987e5;--accent-ink:#86b6ef;--btn:#1c5cab;--accent-soft:#16365c;--good-ink:#6fd66f;--critical-ink:#f08a8a}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#121211;--surface:#1a1a19;--surface-2:#232321;--line:#383835;--text:#f0efec;--text-2:#c3c2b7;--muted:#a9a79d;--accent:#3987e5;--accent-ink:#86b6ef;--btn:#1c5cab;--accent-soft:#16365c;--good-ink:#6fd66f;--critical-ink:#f08a8a}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 .wrap{max-width:860px;margin:0 auto;padding:0 16px}
@@ -23,23 +23,26 @@ h3{font-size:16px;margin:0 0 8px}
 .byline{margin:0 0 12px;font-size:14px;color:var(--text-2)}
 .lede{font-size:17px;color:var(--text-2);margin:0}
 .note{margin-top:16px;padding:12px 14px;border-left:3px solid var(--accent);background:var(--surface);color:var(--text-2);font-size:14px;border-radius:0 6px 6px 0}
+.hiring{margin-top:12px;font-size:15px}
 .tabs{display:flex;gap:6px;flex-wrap:wrap;margin:22px 0 0}
 .tabs button{font:inherit;font-size:14px;padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--text-2);cursor:pointer}
 .tabs button[aria-selected="true"]{border-color:var(--accent);color:var(--accent-ink);font-weight:600;background:var(--accent-soft)}
 section{padding:28px 0;border-top:1px solid var(--line)}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;margin:12px 0}
-.grid{display:grid;gap:12px}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}
-@media (max-width:720px){.g2,.g3{grid-template-columns:1fr}}
-.obj li,.list li{margin:5px 0}
+.grid{display:grid;gap:12px}.g2{grid-template-columns:1fr 1fr}
+.grid>*{min-width:0}
+@media (max-width:720px){.g2{grid-template-columns:1fr}}
+.list li{margin:5px 0}
 .time{font-size:12px;color:var(--muted);font-weight:600}
 .light{display:flex;gap:10px;align-items:flex-start}
 .light .lamp{width:16px;height:16px;border-radius:50%;flex:none;margin-top:4px}
 .btn{font:inherit;font-size:14px;padding:8px 12px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--text);cursor:pointer}
-.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+.btn[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);font-weight:600}
+.btn.primary{background:var(--btn);border-color:var(--btn);color:#fff;font-weight:600}
 .btn:focus-visible,.tabs button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .choices{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-.fb{margin-top:10px;font-size:14px;padding:10px 12px;border-radius:8px;background:var(--surface-2);display:none}
-.fb.show{display:block}
+.fb{margin-top:10px;font-size:14px;padding:10px 12px;border-radius:8px;background:var(--surface-2)}
+.fb:empty{padding:0;margin:0}
 .ok{color:var(--good-ink);font-weight:600}.no{color:var(--critical-ink);font-weight:600}
 .prompt{font-family:ui-monospace,Consolas,monospace;font-size:13px;white-space:pre-wrap;background:var(--surface-2);border-radius:8px;padding:12px;margin:8px 0 0}
 label.chk{display:flex;gap:10px;align-items:flex-start;padding:8px 10px;border:1px solid var(--line);border-radius:8px;margin:6px 0;cursor:pointer;background:var(--surface)}
@@ -49,105 +52,159 @@ table{border-collapse:collapse;width:100%;font-size:14px}
 th,td{text-align:left;padding:8px;border-bottom:1px solid var(--line);vertical-align:top}
 th{font-size:12px;color:var(--text-2)}
 .scroll{overflow-x:auto}
-.progress{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden;margin-top:14px}
+.progress{position:sticky;top:0;z-index:4;background:var(--bg);padding:8px 0}
+.progress .bar{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
 .progress i{display:block;height:100%;background:var(--accent);width:0;transition:width .3s}
+.progress span{font-size:12px;color:var(--muted)}
+.draft{background:var(--surface-2);border-radius:8px;padding:12px;font-size:14px}
+.draft mark{background:transparent;color:inherit;cursor:pointer;border-bottom:2px dotted var(--muted)}
+.draft mark.found{background:var(--accent-soft);border-bottom-color:var(--accent)}
+.email{font-size:14px;background:var(--surface-2);border-radius:8px;padding:12px;white-space:pre-wrap}
 footer{padding:28px 0 60px;border-top:1px solid var(--line);color:var(--text-2);font-size:14px}
 a{color:var(--accent-ink)}
 .theme-toggle{position:fixed;top:12px;right:12px;font:inherit;font-size:12px;padding:5px 9px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--text);z-index:5;cursor:pointer}
 [hidden]{display:none!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 </style>
 </head>
 <body>
 <button class="theme-toggle" id="themeBtn" type="button" aria-label="Toggle light or dark theme">◐ Theme</button>
 <div class="wrap">
 <header class="hero">
-  <div class="eyebrow">Sample learning module · 25 minutes · all colleagues</div>
+  <div class="eyebrow">Sample learning module · about 15 minutes · all colleagues</div>
   <h1>Using AI safely and well at work</h1>
   <p class="byline"><b>Faizaan Saeed</b> · built as a sample for an AI Technical Trainer application.</p>
-  <p class="lede">A short, practical module for colleagues in a retail business who have just been given an approved AI assistant. No jargon: what it's good at, what never goes into it, and how to ask it properly.</p>
-  <div class="note"><b>What this is:</b> a self-paced version of a module I'd also run live. Switch to the <b>Facilitator guide</b> tab to see how the session runs in a room or on Teams. Examples and the "approved tool" are fictional; in a real programme they'd use the client's own policy and tools.</div>
+  <p class="lede">A short, practical module for colleagues in a retail business who have just been given an approved AI assistant. No jargon: how it works, what never goes into it, how to ask it properly, and how to check what it gives you.</p>
+  <div class="note"><b>What this is:</b> the self-paced version of a module I'd also run live. Examples and the "approved tool" are fictional; in a real programme they'd follow the client's own AI and data protection policies.</div>
+  <p class="hiring">Hiring? <a href="#guide" id="toGuide">Start with the facilitator guide and learning journey →</a></p>
   <div class="tabs" role="tablist" aria-label="Module views">
-    <button role="tab" id="t-learn" aria-selected="true" aria-controls="learn">Learner view</button>
-    <button role="tab" id="t-guide" aria-selected="false" aria-controls="guide">Facilitator guide</button>
+    <button role="tab" id="t-learn" aria-selected="true" aria-controls="learn" tabindex="0">Learner view</button>
+    <button role="tab" id="t-guide" aria-selected="false" aria-controls="guide" tabindex="-1">Facilitator guide &amp; learning journey</button>
   </div>
-  <div class="progress" aria-hidden="true"><i id="prog"></i></div>
 </header>
 
-<main id="learn" role="tabpanel" aria-labelledby="t-learn">
+<main>
+<div id="learn" role="tabpanel" aria-labelledby="t-learn">
+<div class="progress" aria-hidden="true"><div class="bar"><i id="prog"></i></div><span id="progTxt">0 of 5 activities done</span></div>
 <section>
   <h2>By the end you'll be able to</h2>
-  <ol class="obj">
-    <li>Say three things AI assistants are good at and two things they get wrong.</li>
-    <li>Decide whether information is safe to put into the approved AI tool.</li>
+  <ol class="list">
+    <li>Explain in one sentence how an AI assistant produces an answer, and name two things it gets wrong.</li>
+    <li>Decide whether information is OK to use with the approved AI tool.</li>
+    <li>Spot AI-related security risks and know what to do if something goes wrong.</li>
     <li>Turn a vague request into a prompt that gets a useful first answer.</li>
     <li>Check an AI answer before you use it.</li>
   </ol>
+  <div class="card"><h3>Quick start: what do you already know?</h3>
+    <div id="pre"></div></div>
 </section>
 
 <section>
-  <span class="time">1 · About 5 minutes</span>
-  <h2>What it's good at, and what it gets wrong</h2>
+  <span class="time">1 · About 3 minutes</span>
+  <h2>How it works, and what it gets wrong</h2>
+  <div class="card"><b>In one sentence:</b> an AI assistant predicts the most likely next words based on patterns in the text it was trained on. It doesn't look facts up unless it's been connected to a source, so it can sound completely sure and still be wrong.</div>
   <div class="grid g2">
     <div class="card"><h3>✓ Good at</h3><ul class="list"><li>First drafts: emails, notices, rota messages</li><li>Summarising long documents or feedback</li><li>Rewording for a different audience or tone</li><li>Brainstorming ideas and checklists</li></ul></div>
-    <div class="card"><h3>✕ Gets wrong</h3><ul class="list"><li>Facts and figures: it can sound sure and still be wrong</li><li>Anything after its training date unless it's given the source</li><li>Company policy it hasn't been shown</li><li>Judgement calls about people</li></ul></div>
+    <div class="card"><h3>✕ Gets wrong</h3><ul class="list"><li>Facts and figures it wasn't given</li><li>Company policy it hasn't been shown: it may invent one</li><li>Anything recent, unless connected to a live source</li><li>Judgement calls about people</li></ul></div>
   </div>
   <p>The rule that covers all of it: <b>AI drafts, you decide.</b> You're responsible for anything you send, whoever wrote the first version.</p>
 </section>
 
 <section>
-  <span class="time">2 · About 7 minutes</span>
+  <span class="time">2 · About 4 minutes</span>
   <h2>Keep data safe: the traffic light</h2>
   <div class="card light"><span class="lamp" style="background:var(--good)" aria-hidden="true"></span><div><b>Green: fine in the approved tool.</b> Public information, general questions, your own wording with no names in it.</div></div>
-  <div class="card light"><span class="lamp" style="background:var(--warning)" aria-hidden="true"></span><div><b>Amber: approved tool only, and remove the details.</b> Internal documents and sales figures that aren't personal. Never put them into a personal or free AI account.</div></div>
-  <div class="card light"><span class="lamp" style="background:var(--critical)" aria-hidden="true"></span><div><b>Red: never.</b> Customer or colleague personal data, payment details, passwords, health or HR information, anything marked confidential.</div></div>
-  <h3 style="margin-top:18px">Try it: is this OK to paste in?</h3>
+  <div class="card light"><span class="lamp" style="background:var(--warning)" aria-hidden="true"></span><div><b>Amber: approved tool only, minimum needed.</b> Internal business information such as sales figures or plans. Use only what the task needs, and never put it into a personal or free AI account.</div></div>
+  <div class="card light"><span class="lamp" style="background:var(--critical)" aria-hidden="true"></span><div><b>Red: not unless your policy says this tool is approved for it.</b> Personal data about customers or colleagues, payment details, passwords, and especially special category data such as health information. When in doubt, leave it out and ask.</div></div>
+  <h3 style="margin-top:18px">Try it: what colour is this?</h3>
   <div id="scen"></div>
 </section>
 
 <section>
-  <span class="time">3 · About 8 minutes</span>
+  <span class="time">3 · About 2 minutes</span>
+  <h2>Stay secure</h2>
+  <div class="grid g2">
+    <div class="card"><h3>AI makes scams more convincing</h3><p style="margin:0;font-size:15px">Phishing emails no longer have spelling mistakes, and voices can be faked. Check unusual requests for money, passwords or gift cards through a second channel, every time.</p></div>
+    <div class="card"><h3>Only use approved tools</h3><p style="margin:0;font-size:15px">Fake "AI" apps and browser extensions are a common way to steal data. If it isn't on the approved list, don't install it or sign in to it with work details.</p></div>
+  </div>
+  <div class="card"><b>Pasted something you shouldn't have?</b> Report it straight away to the service desk. It's fixable, and reporting quickly is what matters: no blame.</div>
+</section>
+
+<section>
+  <span class="time">4 · About 3 minutes</span>
   <h2>Ask it properly: the prompt makeover</h2>
   <p>A good prompt gives the AI what a new colleague would need: <b>who it's for, what you want, the context, the format, and what to check</b>.</p>
   <div class="card"><h3>Starting prompt</h3><div class="prompt">write something about the christmas rota</div>
   <p style="margin:12px 0 4px">Tick the improvements to add, and watch the prompt build:</p>
   <div id="mk"></div>
-  <h3 style="margin-top:12px">Your improved prompt</h3><div class="prompt" id="mkOut" aria-live="polite"></div>
-  <div class="fb" id="mkFb"></div></div>
+  <h3 style="margin-top:12px">Your improved prompt</h3><div class="prompt" id="mkOut"></div>
+  <div class="fb" id="mkFb" role="status"></div></div>
 </section>
 
 <section>
-  <span class="time">4 · About 5 minutes</span>
+  <span class="time">5 · About 2 minutes</span>
+  <h2>Check before you use it: spot the three errors</h2>
+  <p>A colleague asked the AI to draft a notice about the new returns window. Tap the three parts that are wrong.</p>
+  <div class="draft" id="draft">Hi team, from <mark data-e="date" tabindex="0" role="button">Monday 31 November</mark> our returns window changes to 30 days. <mark data-e="policy" tabindex="0" role="button">As per our 2025 policy, customers without a receipt get a full cash refund.</mark> Please let customers know at the till. <mark data-e="tone" tabindex="0" role="button">Any staff who get this wrong will be disciplined.</mark> Thanks!</div>
+  <div class="fb" id="drFb" role="status"></div>
+</section>
+
+<section>
+  <span class="time">About 1 minute</span>
   <h2>Quick knowledge check</h2>
   <div id="quiz"></div>
-  <div class="card" id="result" hidden><div class="score" id="score"></div><p id="scoreMsg" style="margin:6px 0 0"></p></div>
+  <div class="card" id="result" tabindex="-1" role="status" hidden><div class="score" id="score"></div><div id="scoreMsg"></div></div>
 </section>
-</main>
+</div>
 
-<main id="guide" role="tabpanel" aria-labelledby="t-guide" hidden>
+<div id="guide" role="tabpanel" aria-labelledby="t-guide" hidden>
 <section>
   <h2>Facilitator guide (live or on Teams, 45 minutes)</h2>
-  <p>For groups of 8–16. The self-paced version above covers the same objectives for people who can't attend.</p>
+  <p>For groups of 8–16. The self-paced version covers the same objectives for people who can't attend.</p>
   <div class="card scroll"><table>
-    <thead><tr><th>Time</th><th>Activity</th><th>Notes for the facilitator</th></tr></thead>
+    <thead><tr><th>Time</th><th>Activity</th><th>Objective</th><th>Notes for the facilitator</th></tr></thead>
     <tbody>
-      <tr><td>0–5</td><td>Welcome; "what have you already tried AI for?" in the chat</td><td>Sets the level of the room. Note any red-data examples to come back to, without naming anyone.</td></tr>
-      <tr><td>5–12</td><td>Good at / gets wrong, with a live demo</td><td>Ask the tool for last month's store sales; it can't know them. Point out how confident the wrong answer sounds.</td></tr>
-      <tr><td>12–22</td><td>Traffic light: sort 8 cards in pairs</td><td>Debrief the amber ones; they cause the most debate. Link to the data protection policy.</td></tr>
-      <tr><td>22–35</td><td>Prompt makeover on a real task from their role</td><td>Store teams: rota message. Head office: summarise survey comments. Everyone shares one before/after.</td></tr>
-      <tr><td>35–42</td><td>Check before you use it: spot three errors in an AI draft</td><td>Errors planted: a wrong date, an invented policy, a tone problem.</td></tr>
-      <tr><td>42–45</td><td>Knowledge check and one commitment each</td><td>"One task I'll try this week". Mention the drop-in clinic and the AI champions channel.</td></tr>
+      <tr><td>0–5</td><td>Welcome; the two-question quick start in the chat</td><td>Baseline</td><td>Record the answers so before-and-after scores can be compared. Note any risky examples to come back to, without naming anyone.</td></tr>
+      <tr><td>5–12</td><td>How it works, with a live demo</td><td>1</td><td>Ask the tool about a store policy detail it hasn't been given and watch it invent a plausible answer. Then give it the real policy and ask again.</td></tr>
+      <tr><td>12–20</td><td>Traffic light: sort 8 cards in pairs</td><td>2</td><td>Debrief the amber ones; they cause the most debate. Link to the data protection policy and name the data protection lead.</td></tr>
+      <tr><td>20–24</td><td>Stay secure: one AI-written phishing email to dissect</td><td>3</td><td>Stress no-blame reporting.</td></tr>
+      <tr><td>24–35</td><td>Prompt makeover on a real task from their role</td><td>4</td><td>Store teams: rota message. Head office: summarise survey comments. Everyone shares one before/after.</td></tr>
+      <tr><td>35–42</td><td>Spot the errors in an AI draft</td><td>5</td><td>Errors planted: an impossible date, an invented policy, a tone problem.</td></tr>
+      <tr><td>42–45</td><td>Knowledge check and one commitment each</td><td>All</td><td>"One task I'll try this week." Mention the champions clinic and the channel for questions.</td></tr>
     </tbody></table></div>
   <div class="grid g2">
-    <div class="card"><h3>Adapting for audiences</h3><ul class="list"><li><b>Store colleagues:</b> phone-first, shorter, rota and customer-email examples.</li><li><b>Managers:</b> add "reviewing your team's AI use" and when to escalate.</li><li><b>Technical teams:</b> add data connectors, prompt patterns and output checking at scale.</li></ul></div>
-    <div class="card"><h3>Accessibility</h3><ul class="list"><li>Captions on, slides shared in advance, high-contrast examples.</li><li>Every activity has a verbal and a written way to take part.</li><li>The self-paced version works with a keyboard and a screen reader.</li></ul></div>
-    <div class="card"><h3>Measuring whether it worked</h3><ul class="list"><li><b>Reaction:</b> 3-question feedback at the end.</li><li><b>Learning:</b> knowledge-check scores before and after.</li><li><b>Behaviour:</b> 30-day follow-up: are people using the approved tool, and for what?</li><li><b>Results:</b> fewer red-data incidents; time saved on the tasks people named.</li></ul></div>
-    <div class="card"><h3>Keeping it current</h3><ul class="list"><li>Review every quarter, or when the tool or policy changes.</li><li>Champions clinics feed real questions back into the examples.</li><li>Version number and change log on the last slide.</li></ul></div>
+    <div class="card"><h3>Adapting for audiences</h3><ul class="list"><li><b>Store colleagues:</b> phone-first, 20 minutes, rota and customer-email examples.</li><li><b>Managers:</b> add "reviewing your team's AI use" and when to escalate.</li><li><b>Technical teams:</b> add data connectors, prompt patterns and output testing at scale.</li></ul></div>
+    <div class="card"><h3>Accessibility</h3><ul class="list"><li>Captions on, materials shared in advance, high-contrast examples.</li><li>Every activity has a spoken and a written way to take part.</li><li>The self-paced page is keyboard-navigable, with feedback announced to screen readers.</li></ul></div>
   </div>
 </section>
+<section>
+  <h2>Learning journey</h2>
+  <div class="card scroll"><table>
+    <thead><tr><th>When</th><th>Step</th><th>Format</th></tr></thead>
+    <tbody>
+      <tr><td>Week 0</td><td>Invite and 2-minute pre-check</td><td>Email or Teams message</td></tr>
+      <tr><td>Week 1</td><td>This module (live or self-paced)</td><td>45 min live / 15 min online</td></tr>
+      <tr><td>Weeks 2–3</td><td>Role-specific module: store, head office or technical</td><td>30 min</td></tr>
+      <tr><td>Fortnightly</td><td>AI champions clinic and drop-in</td><td>30 min, Teams</td></tr>
+      <tr><td>Day 30</td><td>Follow-up: 3-question survey plus usage data from the tool</td><td>Online</td></tr>
+    </tbody></table></div>
+  <div class="grid g2">
+    <div class="card"><h3>Sample invite</h3><div class="email">Subject: 45 minutes to get more out of [approved AI tool]
+
+Hi [name],
+You now have access to [approved AI tool]. This session shows you what it's good for, what to keep out of it, and how to get useful answers first time.
+[date and time] · on Teams · captions on
+Before you join, please take the 2-minute quick start: [link]
+See you there, [trainer]</div></div>
+    <div class="card"><h3>Measuring whether it worked</h3><ul class="list"><li><b>Reaction:</b> 3 questions at the end (useful? confident? what's missing?).</li><li><b>Learning:</b> quick-start vs knowledge-check scores.</li><li><b>Behaviour:</b> 30-day follow-up and the tool's own usage data: are people using it, and for what?</li><li><b>Results:</b> fewer data incidents, and time saved on the tasks people named.</li><li>Findings go into a monthly note with recommended changes to the content.</li></ul></div>
+  </div>
+  <div class="card"><h3>Keeping it current</h3><p style="margin:0">Reviewed every quarter, or whenever the tool, the policy or the law changes. Questions from the champions clinics feed back into the examples. A version number and change log sit on the last page.</p></div>
+</section>
+</div>
 </main>
 
 <footer>
-  <p><b>Faizaan Saeed</b>, Swindon, UK. I build with generative AI every day (Claude Code, connectors, multi-agent workflows) and delivered a production system for a manufacturer in 15 days, including demos, plain-English guides and a handover so the team used it confidently.</p>
+  <p><b>Faizaan Saeed</b>, Swindon, UK. I build with generative AI every day (Claude Code, connectors, multi-agent workflows) and delivered a production system for a manufacturer on a 15-day contract, including demos, plain-English guides and a handover so the team used it confidently.</p>
   <p><a href="https://www.linkedin.com/in/faizaan-saeed-ba96a426b">LinkedIn</a> · <a href="https://github.com/saeedfzn/ai-at-work-training-demo">Source on GitHub</a></p>
   <p style="font-size:12px;color:var(--muted)">Sample content for illustration; not legal or policy advice. All scenarios are fictional.</p>
 </footer>
@@ -157,43 +214,62 @@ a{color:var(--accent-ink)}
 const root=document.documentElement;
 document.getElementById('themeBtn').addEventListener('click',()=>{const d=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;root.dataset.theme=d?'light':'dark';});
 const $=id=>document.getElementById(id);
-// tabs
-const tabs=[['t-learn','learn'],['t-guide','guide']];
-tabs.forEach(([t,p])=>$(t).addEventListener('click',()=>{tabs.forEach(([t2,p2])=>{$(t2).setAttribute('aria-selected',t2===t);$(p2).hidden=p2!==p;});}));
-let done=0; const total=5+4+4; const tick=()=>{done++;$('prog').style.width=Math.min(100,done/total*100)+'%';};
-// scenarios
+// ---------- tabs (click, arrow keys, #guide deep link) ----------
+const T=[['t-learn','learn'],['t-guide','guide']];
+function show(idx,focus){T.forEach(([t,p],k)=>{const on=k===idx;$(t).setAttribute('aria-selected',on);$(t).tabIndex=on?0:-1;$(p).hidden=!on;});if(focus)$(T[idx][0]).focus();history.replaceState(null,'',idx?'#guide':location.pathname+location.search);}
+T.forEach(([t],k)=>{$(t).addEventListener('click',()=>show(k));$(t).addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();show((k+1)%2,true);}});});
+$('toGuide').addEventListener('click',e=>{e.preventDefault();show(1,true);$('guide').scrollIntoView();});
+if(location.hash==='#guide') show(1);
+// ---------- progress: one step per activity, only when completed ----------
+const doneSet=new Set(), TOTAL=5;
+function done(k){if(doneSet.has(k))return;doneSet.add(k);$('prog').style.width=(doneSet.size/TOTAL*100)+'%';$('progTxt').textContent=`${doneSet.size} of ${TOTAL} activities done`;}
+// ---------- quick start (pre-check) ----------
+const PRE=[{q:'An AI assistant looks up facts before it answers.',a:false},{q:'It\'s fine to paste a customer\'s email into any AI tool if it saves time.',a:false}];
+$('pre').innerHTML=PRE.map((p,i)=>`<div style="margin:8px 0">${p.q}<div class="choices" role="group" aria-label="True or false">${['True','False'].map(v=>`<button class="btn" aria-pressed="false" data-p="${i}" data-v="${v==='True'}">${v}</button>`).join('')}</div><div class="fb" id="pf${i}" role="status"></div></div>`).join('');
+let preAns={};
+$('pre').addEventListener('click',e=>{const b=e.target.closest('button[data-p]');if(!b)return;const i=+b.dataset.p,ok=(b.dataset.v==='true')===PRE[i].a;b.parentElement.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));preAns[i]=ok;$('pf'+i).innerHTML=`${ok?'<span class="ok">✓ Right.</span>':'<span class="no">Not quite.</span>'} We'll cover this below.`;if(Object.keys(preAns).length===PRE.length)done('pre');});
+// ---------- scenarios ----------
 const SC=[
- {q:'A customer complaint email, including their name, address and order number, so the AI can draft a reply.',a:'red',why:'Personal data. Ask it to draft a reply to "a customer whose delivery arrived damaged", then add the details yourself.'},
+ {q:'A customer complaint email, including their name, address and order number, so the AI can draft a reply.',a:'red',why:'It\'s personal data. Ask it to draft a reply to "a customer whose delivery arrived damaged", then add the details yourself in the email.'},
  {q:'Our public returns policy from the website, to summarise it in plain English for new starters.',a:'green',why:'It\'s already public. Still check the summary against the policy before you share it.'},
- {q:'Last quarter\'s store sales figures (no names), in the approved tool, to spot trends.',a:'amber',why:'Fine in the approved tool, never in a personal account. Check any trend it claims against the actual numbers.'},
- {q:'A colleague\'s sickness record, to help write a return-to-work plan.',a:'red',why:'Health and HR data is special category data. Talk to HR instead.'},
+ {q:'This week\'s sales total for your store (no names), in the approved tool, to draft a team update.',a:'amber',why:'Internal but not personal: fine in the approved tool, using only the figure you need. Never in a personal account.'},
+ {q:'A colleague\'s sick-leave notes, to help write their return-to-work plan.',a:'red',why:'Health information is special category data under UK GDPR and needs extra protection. Talk to HR instead.'},
  {q:'"Give me 10 ideas for a Christmas window display for a homeware store."',a:'green',why:'No business or personal data at all. This is exactly what it\'s good at.'},
 ];
-const LAB={green:'🟢 Green',amber:'🟠 Amber',red:'🔴 Red'};
-$('scen').innerHTML=SC.map((s,i)=>`<div class="card"><div>${s.q}</div><div class="choices" role="group" aria-label="Choose a rating">${['green','amber','red'].map(c=>`<button class="btn" data-s="${i}" data-c="${c}">${LAB[c]}</button>`).join('')}</div><div class="fb" id="sf${i}" aria-live="polite"></div></div>`).join('');
-const answered=new Set();
-$('scen').addEventListener('click',e=>{const b=e.target.closest('button[data-s]');if(!b)return;const i=+b.dataset.s,s=SC[i],ok=b.dataset.c===s.a;const f=$('sf'+i);f.className='fb show';f.innerHTML=`<span class="${ok?'ok':'no'}">${ok?'✓ Right':'✕ Not quite'}: it's ${LAB[s.a]}.</span> ${s.why}`;if(!answered.has(i)){answered.add(i);tick();}});
-// prompt makeover
+const LAB={green:'Green',amber:'Amber',red:'Red'};
+$('scen').innerHTML=SC.map((s,i)=>`<div class="card"><div>${s.q}</div><div class="choices" role="group" aria-label="Choose a colour">${['green','amber','red'].map(c=>`<button class="btn" aria-pressed="false" data-s="${i}" data-c="${c}"><span aria-hidden="true">${c==='green'?'🟢':c==='amber'?'🟠':'🔴'}</span> ${LAB[c]}</button>`).join('')}</div><div class="fb" id="sf${i}" role="status"></div></div>`).join('');
+const scDone=new Set();
+$('scen').addEventListener('click',e=>{const b=e.target.closest('button[data-s]');if(!b)return;const i=+b.dataset.s,s=SC[i],ok=b.dataset.c===s.a;b.parentElement.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));$('sf'+i).innerHTML=`<span class="${ok?'ok':'no'}">${ok?'✓ Right':'✕ Not quite'}: it's ${LAB[s.a]}.</span> ${s.why}`;scDone.add(i);if(scDone.size===SC.length)done('scen');});
+// ---------- prompt makeover ----------
 const MK=[
  {k:'who',t:'Say who it\'s for',add:'You are helping a store manager write to their team of 12 part-time colleagues.'},
  {k:'what',t:'Say exactly what you want',add:'Write a short message asking people to choose their Christmas shifts.'},
  {k:'ctx',t:'Give the context it can\'t know',add:'Shifts are 20–24 Dec and 27–31 Dec. Everyone must work at least two. Choices close Friday 5pm.'},
- {k:'fmt',t:'Say the format and tone',add:'Under 120 words, friendly, with the dates as a bullet list. Suitable for a WhatsApp group.'},
+ {k:'fmt',t:'Say the format and tone',add:'Under 120 words, friendly, with the dates as a bullet list, for our team chat.'},
  {k:'chk',t:'Ask it to flag anything it\'s unsure of',add:'If anything is unclear, list your questions instead of guessing.'},
 ];
 $('mk').innerHTML=MK.map(m=>`<label class="chk"><input type="checkbox" data-k="${m.k}"><span>${m.t}</span></label>`).join('');
-const seen=new Set();
-const draw=()=>{const on=[...$('mk').querySelectorAll('input:checked')].map(x=>x.dataset.k);$('mkOut').textContent=on.length?MK.filter(m=>on.includes(m.k)).map(m=>m.add).join('\n'):'write something about the christmas rota';const fb=$('mkFb');if(on.length===MK.length){fb.className='fb show';fb.innerHTML='<span class="ok">✓ That\'s a prompt a colleague could act on.</span> Notice it never needed anyone\'s name or personal details. And you still read the draft before sending.';}else{fb.className='fb';}};
-$('mk').addEventListener('change',e=>{const k=e.target.dataset.k;if(e.target.checked&&!seen.has(k)){seen.add(k);if(seen.size<=4)tick();}draw();});draw();
-// quiz
+const draw=()=>{const on=[...$('mk').querySelectorAll('input:checked')].map(x=>x.dataset.k);$('mkOut').textContent=on.length?MK.filter(m=>on.includes(m.k)).map(m=>m.add).join('\n'):'write something about the christmas rota';$('mkFb').innerHTML=on.length===MK.length?'<span class="ok">✓ That\'s a prompt a colleague could act on.</span> It never needed anyone\'s name or personal details, and you still read the draft before sending.':'';if(on.length===MK.length)done('mk');};
+$('mk').addEventListener('change',draw);draw();
+// ---------- spot the errors ----------
+const ERR={date:'November only has 30 days. AI often gets dates and figures wrong, so check them.',policy:'Invented policy: nothing said this. AI fills gaps with plausible-sounding rules, so check against the real policy.',tone:'Tone: a threat you\'d never send. Read drafts as the person receiving them.'};
+const found=new Set();
+function hit(m){const k=m.dataset.e;m.classList.add('found');found.add(k);$('drFb').innerHTML=`<span class="ok">✓ Found ${found.size} of 3.</span> ${ERR[k]}${found.size===3?' <b>All found. That\'s the habit: check facts, policy and tone every time.</b>':''}`;if(found.size===3)done('draft');}
+$('draft').querySelectorAll('mark').forEach(m=>{m.addEventListener('click',()=>hit(m));m.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();hit(m);}});});
+// ---------- knowledge check ----------
 const Q=[
- {q:'The AI gives you a confident answer about your store\'s sales last month. What do you do?',o:['Use it; it sounded sure','Check it against the real report','Ask it again until it agrees'],a:1},
- {q:'Which of these is fine to paste into a personal, free AI account?',o:['Internal sales figures','A customer\'s email','A general question with no company data'],a:2},
- {q:'Which prompt is likely to get the most useful first answer?',o:['"Write about returns"','"Summarise our returns policy for new starters in 5 bullet points, plain English"','"Returns?"'],a:1},
- {q:'Who is responsible for an email you send that AI drafted?',o:['The AI tool','IT','You'],a:2},
+ {q:'Why can an AI assistant give a confident but wrong answer?',o:['It is deliberately lying','It predicts likely words and doesn\'t check facts unless given a source','It only happens when the internet is down'],a:1,why:'It predicts plausible text; it doesn\'t look things up unless it\'s connected to a source (section 1).'},
+ {q:'Which of these is OK to use with a personal, free AI account for work?',o:['Internal sales figures','A customer\'s email','Nothing work-related, unless your policy allows that tool'],a:2,why:'Work information belongs in the approved tool only (section 2).'},
+ {q:'You get an urgent email from your area manager asking for gift card codes. What do you do?',o:['Send them quickly','Check through a second channel, such as a call','Reply asking if it\'s real'],a:1,why:'AI makes scams more convincing, so verify unusual requests another way (section 3).'},
+ {q:'Which prompt is likely to get the most useful first answer?',o:['"Write about returns"','"Summarise our returns policy for new starters in 5 bullet points, plain English"','"Returns?"'],a:1,why:'Who, what, context and format (section 4).'},
+ {q:'Who is responsible for an email you send that AI drafted?',o:['The AI tool','IT','You'],a:2,why:'AI drafts, you decide (section 5).'},
 ];
-$('quiz').innerHTML=Q.map((x,i)=>`<fieldset class="card" style="border:1px solid var(--line)"><legend style="font-weight:600;padding:0 4px">${i+1}. ${x.q}</legend>${x.o.map((o,j)=>`<label class="chk"><input type="radio" name="q${i}" value="${j}"><span>${o}</span></label>`).join('')}</fieldset>`).join('')+'<button class="btn primary" id="mark">Check my answers</button>';
-$('mark').addEventListener('click',()=>{let s=0,n=0;Q.forEach((x,i)=>{const v=document.querySelector(`input[name=q${i}]:checked`);if(v){n++;if(+v.value===x.a)s++;}});if(n<Q.length){$('result').hidden=false;$('score').textContent='';$('scoreMsg').textContent=`Answer all ${Q.length} questions first (${n} done).`;return;}$('result').hidden=false;$('score').textContent=`${s} / ${Q.length}`;$('scoreMsg').innerHTML=s===Q.length?'<span class="ok">✓ All correct.</span> You\'re ready to use the approved tool. Try one task from the prompt makeover this week.':'<span class="no">Nearly.</span> Have another look at sections 1 and 2, then try again. AI drafts, you decide.';for(let k=0;k<4;k++)if(done<total)tick();});
+$('quiz').innerHTML=Q.map((x,i)=>`<fieldset class="card" style="border:1px solid var(--line)"><legend style="font-weight:600;padding:0 4px">${i+1}. ${x.q}</legend>${x.o.map((o,j)=>`<label class="chk"><input type="radio" name="q${i}" value="${j}"><span>${o}</span></label>`).join('')}<div class="fb" id="qf${i}"></div></fieldset>`).join('')+'<button class="btn primary" id="mark">Check my answers</button>';
+$('mark').addEventListener('click',()=>{let s=0,n=0;Q.forEach((x,i)=>{const v=document.querySelector(`input[name=q${i}]:checked`);$('qf'+i).innerHTML='';if(v){n++;const ok=+v.value===x.a;if(ok)s++;$('qf'+i).innerHTML=`${ok?'<span class="ok">✓ Correct.</span>':'<span class="no">✕ Not quite.</span>'} ${x.why}`;}});
+  const r=$('result');r.hidden=false;
+  if(n<Q.length){$('score').textContent='';$('scoreMsg').textContent=`Answer all ${Q.length} questions first (${n} done).`;}
+  else{done('quiz');$('score').textContent=`${s} / ${Q.length}`;$('scoreMsg').innerHTML=s===Q.length?'<span class="ok">✓ All correct.</span> Try one task from the prompt makeover this week.':'Have a look at the notes under each question, then try again. AI drafts, you decide.';}
+  r.focus();});
 })();
 </script>
 </body>
